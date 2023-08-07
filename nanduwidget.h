@@ -10,12 +10,12 @@
 #include <QApplication>
 #include <QDebug>
 #include <QStackedWidget>
-#include "mainwindow.h.bak"
+#include "bak_mainwindow.h"
 #include "menubarwid.h"
 #include "ndmassegebox.h"
 #include "ctipareawid.h"
 #include "cstatewid.h"
-#include "mainwidget.h.bak"
+#include "bak_mainwidget.h"
 
 class NanDuWidget : public QWidget
 {

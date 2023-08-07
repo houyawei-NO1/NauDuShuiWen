@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui charts
+QT       += core gui charts serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -26,10 +26,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    bak_canthread.cpp \
+    bak_mainwidget.cpp \
+    bak_mainwindow.cpp \
         main.cpp \
     nanduwidget.cpp \
     menubarwid.cpp \
     pushbutton.cpp \
+    serialport.cpp \
     toolbutton.cpp \
     ndmassegebox.cpp \
     ctipareawid.cpp \
@@ -41,9 +45,13 @@ SOURCES += \
     resultdialog.cpp
 
 HEADERS += \
+    bak_canthread.h \
+    bak_mainwidget.h \
+    bak_mainwindow.h \
     nanduwidget.h \
     menubarwid.h \
     pushbutton.h \
+    serialport.h \
     toolbutton.h \
     ndmassegebox.h \
     ctipareawid.h \
@@ -72,10 +80,4 @@ RESOURCES += \
     res.qrc
 
 DISTFILES += \
-    logo.rc \
-    canthread.cpp.bak \
-    canthread.h.bak \
-    mainwindow.cpp.bak \
-    mainwindow.h.bak \
-    mainwidget.cpp.bak \
-    mainwidget.h.bak
+    logo.rc
