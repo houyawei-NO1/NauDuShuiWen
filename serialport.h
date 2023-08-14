@@ -33,6 +33,7 @@ signals:
 private slots:
     void openbutton_clicked();
     void closeButton_clicked();
+    void sendButton_clicked();
     void rec_data();
 private:
 

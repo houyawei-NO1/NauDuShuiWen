@@ -191,6 +191,11 @@ void serialport::closeButton_clicked()
     global_port.close();
 }
 
+void serialport::sendButton_clicked()
+{
+
+}
+
 void serialport::rec_data()
 {
     QByteArray receiveArray = global_port.readAll();
