@@ -1,19 +1,18 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'bak_mainwidget.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.14.2)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include <memory>
 #include "../../bak_mainwidget.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'bak_mainwidget.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.14.2. It"
+#error "This file was generated using the moc from 5.9.3. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -51,7 +50,7 @@ QT_MOC_LITERAL(7, 79, 12) // "Cal_TotleNum"
 static const uint qt_meta_data_MainWidget[] = {
 
  // content:
-       8,       // revision
+       7,       // revision
        0,       // classname
        0,    0, // classinfo
        6,   14, // methods
@@ -87,7 +86,7 @@ static const uint qt_meta_data_MainWidget[] = {
 void MainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<MainWidget *>(_o);
+        MainWidget *_t = static_cast<MainWidget *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->send_TotleNum((*reinterpret_cast< int(*)>(_a[1]))); break;
@@ -101,14 +100,14 @@ void MainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (MainWidget::*)(int );
+            typedef void (MainWidget::*_t)(int );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MainWidget::send_TotleNum)) {
                 *result = 0;
                 return;
             }
         }
         {
-            using _t = void (MainWidget::*)(QString );
+            typedef void (MainWidget::*_t)(QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MainWidget::send_BuhegeXiangmu)) {
                 *result = 1;
                 return;
@@ -117,14 +116,10 @@ void MainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     }
 }
 
-QT_INIT_METAOBJECT const QMetaObject MainWidget::staticMetaObject = { {
-    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
-    qt_meta_stringdata_MainWidget.data,
-    qt_meta_data_MainWidget,
-    qt_static_metacall,
-    nullptr,
-    nullptr
-} };
+const QMetaObject MainWidget::staticMetaObject = {
+    { &QWidget::staticMetaObject, qt_meta_stringdata_MainWidget.data,
+      qt_meta_data_MainWidget,  qt_static_metacall, nullptr, nullptr}
+};
 
 
 const QMetaObject *MainWidget::metaObject() const
@@ -160,14 +155,14 @@ int MainWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void MainWidget::send_TotleNum(int _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
 // SIGNAL 1
 void MainWidget::send_BuhegeXiangmu(QString _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP

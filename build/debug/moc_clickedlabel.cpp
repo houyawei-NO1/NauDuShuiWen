@@ -1,19 +1,18 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'clickedlabel.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.14.2)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include <memory>
 #include "../../clickedlabel.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'clickedlabel.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.14.2. It"
+#error "This file was generated using the moc from 5.9.3. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -49,7 +48,7 @@ QT_MOC_LITERAL(6, 61, 15) // "MouseMoveToItem"
 static const uint qt_meta_data_ClickedLabel[] = {
 
  // content:
-       8,       // revision
+       7,       // revision
        0,       // classname
        0,    0, // classinfo
        3,   14, // methods
@@ -75,7 +74,7 @@ static const uint qt_meta_data_ClickedLabel[] = {
 void ClickedLabel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<ClickedLabel *>(_o);
+        ClickedLabel *_t = static_cast<ClickedLabel *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->Clicked((*reinterpret_cast< ClickedLabel*(*)>(_a[1]))); break;
@@ -111,21 +110,21 @@ void ClickedLabel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (ClickedLabel::*)(ClickedLabel * );
+            typedef void (ClickedLabel::*_t)(ClickedLabel * );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ClickedLabel::Clicked)) {
                 *result = 0;
                 return;
             }
         }
         {
-            using _t = void (ClickedLabel::*)(int , ClickedLabel * );
+            typedef void (ClickedLabel::*_t)(int , ClickedLabel * );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ClickedLabel::ClickedItemIndex)) {
                 *result = 1;
                 return;
             }
         }
         {
-            using _t = void (ClickedLabel::*)(int , ClickedLabel * );
+            typedef void (ClickedLabel::*_t)(int , ClickedLabel * );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ClickedLabel::MouseMoveToItem)) {
                 *result = 2;
                 return;
@@ -134,14 +133,10 @@ void ClickedLabel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
     }
 }
 
-QT_INIT_METAOBJECT const QMetaObject ClickedLabel::staticMetaObject = { {
-    QMetaObject::SuperData::link<QLabel::staticMetaObject>(),
-    qt_meta_stringdata_ClickedLabel.data,
-    qt_meta_data_ClickedLabel,
-    qt_static_metacall,
-    nullptr,
-    nullptr
-} };
+const QMetaObject ClickedLabel::staticMetaObject = {
+    { &QLabel::staticMetaObject, qt_meta_stringdata_ClickedLabel.data,
+      qt_meta_data_ClickedLabel,  qt_static_metacall, nullptr, nullptr}
+};
 
 
 const QMetaObject *ClickedLabel::metaObject() const
@@ -177,21 +172,21 @@ int ClickedLabel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void ClickedLabel::Clicked(ClickedLabel * _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
 // SIGNAL 1
 void ClickedLabel::ClickedItemIndex(int _t1, ClickedLabel * _t2)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 
 // SIGNAL 2
 void ClickedLabel::MouseMoveToItem(int _t1, ClickedLabel * _t2)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 QT_WARNING_POP

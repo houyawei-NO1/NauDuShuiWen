@@ -10,12 +10,13 @@
 #include <QApplication>
 #include <QDebug>
 #include <QStackedWidget>
-#include "bak_mainwindow.h"
 #include "menubarwid.h"
 #include "ndmassegebox.h"
 #include "ctipareawid.h"
 #include "cstatewid.h"
-#include "bak_mainwidget.h"
+#include "serialport.h"
+#include "mainwidget.h"
+
 
 class NanDuWidget : public QWidget
 {
@@ -26,20 +27,18 @@ public:
     void setupUi();
     void Reset();
 
+
 private:
     QWidget *widget=new QWidget(this);
     QGridLayout *gLayout;
-    QVBoxLayout *vLayout[12];
-    QLabel *pStatus[12];
-    QLabel *tName[12];
-    MainWindow *w;
     MenuBarWid* m_pMenuBar;
     ndmassegebox *m_ndMsgBox;
     QWidget *m_Darkwidge;
     CTipAreaWid *m_pTipAreaWid;
     CStateWid *m_pStateAreawid;
     QStackedWidget *m_StackedWidget;
-    MainWidget *mainwidget;
+    mainwidget *m;
+    serialport *rs485;
 
 
 signals:

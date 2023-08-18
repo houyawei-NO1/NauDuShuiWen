@@ -1,19 +1,18 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'cdoublebutton.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.14.2)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include <memory>
 #include "../../cdoublebutton.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'cdoublebutton.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.14.2. It"
+#error "This file was generated using the moc from 5.9.3. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -44,7 +43,7 @@ QT_MOC_LITERAL(2, 26, 0) // ""
 static const uint qt_meta_data_CDoubleButton[] = {
 
  // content:
-       8,       // revision
+       7,       // revision
        0,       // classname
        0,    0, // classinfo
        1,   14, // methods
@@ -66,7 +65,7 @@ static const uint qt_meta_data_CDoubleButton[] = {
 void CDoubleButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<CDoubleButton *>(_o);
+        CDoubleButton *_t = static_cast<CDoubleButton *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->DoubleClick(); break;
@@ -75,7 +74,7 @@ void CDoubleButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (CDoubleButton::*)();
+            typedef void (CDoubleButton::*_t)();
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CDoubleButton::DoubleClick)) {
                 *result = 0;
                 return;
@@ -85,14 +84,10 @@ void CDoubleButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject CDoubleButton::staticMetaObject = { {
-    QMetaObject::SuperData::link<QPushButton::staticMetaObject>(),
-    qt_meta_stringdata_CDoubleButton.data,
-    qt_meta_data_CDoubleButton,
-    qt_static_metacall,
-    nullptr,
-    nullptr
-} };
+const QMetaObject CDoubleButton::staticMetaObject = {
+    { &QPushButton::staticMetaObject, qt_meta_stringdata_CDoubleButton.data,
+      qt_meta_data_CDoubleButton,  qt_static_metacall, nullptr, nullptr}
+};
 
 
 const QMetaObject *CDoubleButton::metaObject() const

@@ -5,6 +5,8 @@ NanDuWidget::NanDuWidget(QWidget *parent) : QWidget(parent)
 
     setupUi();
 
+    connect(rs485,SIGNAL(sendQStringList(QStringList)),m,SLOT(QStringListDeal(QStringList)));
+
     //功能状态
 //    connect(w, SIGNAL(signal_send(int,bool)), mainwidget, SLOT(led_change(int,bool)),Qt::QueuedConnection);
 //    connect(w, SIGNAL(electric_send(int,int,int,int)), mainwidget, SLOT(electric_change(int,int,int,int)),Qt::QueuedConnection);
@@ -71,10 +73,12 @@ void NanDuWidget::setupUi()
     m_pMenuBar = new MenuBarWid(this);
 
     m_StackedWidget = new QStackedWidget(this);
-//    mainwidget = new MainWidget(this);
 
-//    m_StackedWidget->addWidget(mainwidget);
-//    m_StackedWidget->addWidget(w);
+    m = new mainwidget(this);
+    rs485 = new serialport(this);
+
+    m_StackedWidget->addWidget(m);
+    m_StackedWidget->addWidget(rs485);
 
 
    pVSubLayOut->addWidget(m_pMenuBar);
@@ -150,7 +154,7 @@ void NanDuWidget::SelectButton(int iCurSelectNum)
 }
 void NanDuWidget::click_on_closeall()
 {
-    delete w;
+//    delete w;
     close();
 }
 void NanDuWidget::click_on_Max()
@@ -163,7 +167,7 @@ void NanDuWidget::click_on_Min()
 }
 void NanDuWidget::CloseSoft()
 {
-    delete w;
+//    delete w;
     close();
 }
 void NanDuWidget::click_on_msgok(int msgtype)

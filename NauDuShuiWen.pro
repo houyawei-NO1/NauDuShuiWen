@@ -27,7 +27,6 @@ CONFIG += c++11
 
 SOURCES += \
     bak_canthread.cpp \
-    bak_mainwidget.cpp \
     bak_mainwindow.cpp \
         main.cpp \
     nanduwidget.cpp \
@@ -42,11 +41,11 @@ SOURCES += \
     clickedlabel.cpp \
     ledwidget.cpp \
     chartviewwid.cpp \
-    resultdialog.cpp
+    resultdialog.cpp \
+    mainwidget.cpp
 
 HEADERS += \
     bak_canthread.h \
-    bak_mainwidget.h \
     bak_mainwindow.h \
     nanduwidget.h \
     menubarwid.h \
@@ -60,7 +59,8 @@ HEADERS += \
     clickedlabel.h \
     ledwidget.h \
     chartviewwid.h \
-    resultdialog.h
+    resultdialog.h \
+    mainwidget.h
 
 FORMS += \
         mainwindow.ui

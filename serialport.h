@@ -16,6 +16,7 @@
 #include <QCheckBox>
 #include <QDateTime>
 #include <QFile>
+#include <QTimer>
 
 
 
@@ -30,11 +31,14 @@ public:
 
 signals:
 
+    void sendQStringList(QStringList);
 private slots:
     void openbutton_clicked();
     void closeButton_clicked();
     void sendButton_clicked();
+    void refreshButton_clicked();
     void rec_data();
+    void auto_deal();
 private:
 
 
