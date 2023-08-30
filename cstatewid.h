@@ -28,6 +28,10 @@ public slots:
    void click_on_BtnStamp();
    void status_slot(bool,bool,bool);
    void DataRec_slot();
+   void DataRec_slot_DevA();
+   void DataRec_slot_DevB();
+   void DataRec_slot_DevC();
+   void DataRec_slot_DevD();
 
 private:
        QLabel* m_text_sortOne;

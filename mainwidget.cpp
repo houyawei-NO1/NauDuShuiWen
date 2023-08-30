@@ -5,7 +5,8 @@ mainwidget::mainwidget(QWidget *parent) : QWidget(parent)
 {
 
     this->setAttribute(Qt::WA_StyledBackground,true);
-    this->setStyleSheet("background-color:black;");//rgb(28,32,48)
+    this->setStyleSheet("background-color:rgb(28,32,48);");
+//    this->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238)");
     this->setWindowFlags(Qt::FramelessWindowHint);
     QDesktopWidget* desktopWidget = QApplication::desktop();
     QRect screenRect = desktopWidget->screenGeometry();
@@ -14,7 +15,9 @@ mainwidget::mainwidget(QWidget *parent) : QWidget(parent)
     this->setFixedSize(currentScreenWid,currentScreenHei);
 
     mainlayout = new QHBoxLayout(this);
+    mainlayout->setContentsMargins(5,10,5,10);
     mainlayout->setSpacing(0);
+
     gridlayout_left = new QGridLayout();
     gridlayout_right = new QGridLayout();
     mainlayout->addLayout(gridlayout_left,8);
@@ -30,12 +33,13 @@ mainwidget::mainwidget(QWidget *parent) : QWidget(parent)
         for(int j=0;j<10;j++)
         {
         dianzu[i*10+j]  = new QLabel();
-        qDebug()<<i*10+j<<endl;
+//        qDebug()<<i*10+j<<endl;
         dianzu[i*10+j]->setText(QString::number(i*10+j+1));
         dianzu[i*10+j]->setAlignment(Qt::AlignCenter);
-        dianzu[i*10+j]->setStyleSheet("color:rgb(255,245,238);font:40px");
+        dianzu[i*10+j]->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:40px");
         gridlayout_left->addWidget(dianzu[i*10+j],i,j);
         }
+//    qDebug()<<"mainwidget"<<minvalue<<endl;
 }
 
 void mainwidget::QStringListDeal(QStringList str_list)
@@ -62,13 +66,27 @@ void mainwidget::QStringListDeal(QStringList str_list)
         {
             qDebug()<<"F7E3C912016530"<<endl;
             for(int i = 0;i<14;i++)
-            dianzu[i]->setText(str_list.at(i+3));
+                {
+                dianzu[i]->setText(str_list.at(i+3));
+                if(dianzu[i]->text().toFloat()>minvalue && dianzu[i]->text().toFloat()<maxvalue)
+                    dianzu[i]->setStyleSheet("color:rgb(67,207,124);font:40px");
+                else
+                    dianzu[i]->setStyleSheet("color:rgb(255,245,238);font:40px");
+                }
+            emit DataRec_sta_DevA();
         }
     else if(str_list.at(1) == "F7E3C912016531")
         {
             qDebug()<<"F7E3C912016531"<<endl;
             for(int i = 14;i<28;i++)
+            {
             dianzu[i]->setText(str_list.at(i-11));
+            if(dianzu[i]->text().toFloat()>minvalue && dianzu[i]->text().toFloat()<maxvalue)
+                dianzu[i]->setStyleSheet("color:rgb(67,207,124);font:40px");
+            else
+                dianzu[i]->setStyleSheet("color:rgb(255,245,238);font:40px");
+            }
+            emit DataRec_sta_DevB();
         }
 }
 

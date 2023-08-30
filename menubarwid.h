@@ -7,8 +7,12 @@
 #include <QHBoxLayout>
 #include <QDebug>
 #include <QProgressBar>
+#include <QComboBox>
+#include <QLineEdit>
 #include "pushbutton.h"
 #include "toolbutton.h"
+
+extern float minvalue,maxvalue;
 
 class MenuBarWid : public QWidget
 {
@@ -33,7 +37,8 @@ public slots:
        void slotSetTotleNum();
        void rec_TotleNum(int num);
        void ReInit();
-
+       void SetMinMaxValue();
+       void LineEditChanged();
 private:
    QWidget *widget=new QWidget(this);
 
@@ -56,6 +61,10 @@ private:
     QLabel* lb_TotleNum;
     int m_ItotleNum;
     QProgressBar *ProgressBar;
+
+    QComboBox *selectCombobox;
+    QLineEdit *minLineEdit;
+    QLineEdit *maxLineEdit;
 };
 
 #endif // MENUBARWID_H

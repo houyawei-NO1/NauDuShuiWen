@@ -3,9 +3,11 @@
 
 serialport::serialport(QWidget *parent) : QWidget(parent)
 {
-
-
+    this->setAttribute(Qt::WA_StyledBackground,true);
+    this->setStyleSheet("background-color:rgb(28,32,48);color:rgb(255,245,238);font-size:40px");
     mainlayout = new QGridLayout(this);
+    mainlayout->setContentsMargins(5,20,5,20);
+//    this->setStyleSheet("background-color:black;color:rgb(255,245,238);font-size:40px");
     vlayout =new QVBoxLayout();
     vTextlayout =new QVBoxLayout();
     filelayout = new QHBoxLayout();
@@ -19,6 +21,7 @@ serialport::serialport(QWidget *parent) : QWidget(parent)
     status = new QLabel;
     status->setAlignment(Qt::AlignCenter);
     status->setText("尚未连接");
+    status->setStyleSheet("font-size:20px");
     inputAppend= new QComboBox;
     inputAppend->addItem("输入内容无追加");
     inputAppend->addItem("CR");
@@ -84,30 +87,46 @@ serialport::serialport(QWidget *parent) : QWidget(parent)
     readButton->setText("向串口发送日志");
 
     mainlayout->addLayout(vTextlayout,0,0,10,7);
+    messageBox->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:20px");
     vTextlayout->addWidget(messageBox,7);
+    filemessageBox->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:20px");
     vTextlayout->addWidget(filemessageBox,3);
     mainlayout->addLayout(vlayout,0,8,10,3);
     vlayout->addStretch(1);
     vlayout->addWidget(status);
     vlayout->addStretch(1);
+    sendLineEdit->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:40px");
     vlayout->addWidget(sendLineEdit);
     vlayout->addLayout(hlayout);
+    inputAppend->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:40px");
     hlayout->addWidget(inputAppend);
+    question->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:40px");
     hlayout->addWidget(question);
+    sendButton->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:40px");
     vlayout->addWidget(sendButton);
+    clearText->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:40px");
     vlayout->addWidget(clearText);
     vlayout->addStretch(1);
     // vlayout->addStretch();
+    setting1->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:40px");
     vlayout->addWidget(setting1);
+    refreshButton->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:40px");
     vlayout->addWidget(refreshButton);
+    setting2->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:40px");
     vlayout->addWidget(setting2);
+    setting3->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:40px");
     vlayout->addWidget(setting3);
+    openButton->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:40px");
     vlayout->addWidget(openButton);
+    closeButton->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:40px");
     vlayout->addWidget(closeButton);
     vlayout->addStretch(1);
     vlayout->addLayout(filelayout);
+    saveButton->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:40px");
     filelayout->addWidget(saveButton);
+    sendtime->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:40px");
     filelayout->addWidget(sendtime);
+    readButton->setStyleSheet("background-color:rgb(43,48,70);color:rgb(255,245,238);font:40px");
     filelayout->addWidget(readButton);
     vlayout->addStretch(1);
 

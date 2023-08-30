@@ -10,6 +10,8 @@
 #include <QApplication>
 #include <QDebug>
 #include <QStackedWidget>
+#include <QDir>
+#include <QProcess>
 #include "menubarwid.h"
 #include "ndmassegebox.h"
 #include "ctipareawid.h"
@@ -26,6 +28,8 @@ public:
     ~NanDuWidget();
     void setupUi();
     void Reset();
+    void reboot();
+
 
 
 private:

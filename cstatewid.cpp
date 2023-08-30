@@ -25,10 +25,10 @@ void CStateWid::Init()
     pe.setColor(QPalette::WindowText, Qt::white);
 
     QString strColor="border-radius:8px;background-color:rgb(255,245,238)";
-    m_vectext.append("开启设备");
-    m_vectext.append("CAN初始化");
-    m_vectext.append("CAN启动");
-    m_vectext.append("数据接收");
+    m_vectext.append("RS485子设备一");
+    m_vectext.append("RS485子设备二");
+    m_vectext.append("RS485子设备三");
+    m_vectext.append("RS485子设备四");
 
     m_text_sortOne = new  QLabel(this);
     m_text_sortOne->setText(m_vectext.at(0));
@@ -144,6 +144,38 @@ void CStateWid::status_slot(bool iSta_Dev,bool iSta_CanInit,bool iSta_CanStart)
     }
 }
 void CStateWid::DataRec_slot()
+{
+
+    m_color_sortFour->setStyleSheet("border-radius:8px;background-color:rgb(67,207,124)");
+    QTimer::singleShot(1 * 1000,this,[=]{
+                    m_color_sortFour->setStyleSheet("border-radius:8px;background-color:rgb(255,245,238)");
+                });
+}
+void CStateWid::DataRec_slot_DevA()
+{
+
+    m_color_sortOne->setStyleSheet("border-radius:8px;background-color:rgb(67,207,124)");
+    QTimer::singleShot(1 * 1000,this,[=]{
+                    m_color_sortOne->setStyleSheet("border-radius:8px;background-color:rgb(255,245,238)");
+                });
+}
+void CStateWid::DataRec_slot_DevB()
+{
+
+    m_color_sortTwo->setStyleSheet("border-radius:8px;background-color:rgb(67,207,124)");
+    QTimer::singleShot(1 * 1000,this,[=]{
+                    m_color_sortTwo->setStyleSheet("border-radius:8px;background-color:rgb(255,245,238)");
+                });
+}
+void CStateWid::DataRec_slot_DevC()
+{
+
+    m_color_sortThree->setStyleSheet("border-radius:8px;background-color:rgb(67,207,124)");
+    QTimer::singleShot(1 * 1000,this,[=]{
+                    m_color_sortThree->setStyleSheet("border-radius:8px;background-color:rgb(255,245,238)");
+                });
+}
+void CStateWid::DataRec_slot_DevD()
 {
 
     m_color_sortFour->setStyleSheet("border-radius:8px;background-color:rgb(67,207,124)");

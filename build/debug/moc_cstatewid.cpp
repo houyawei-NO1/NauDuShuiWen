@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CStateWid_t {
-    QByteArrayData data[10];
-    char stringdata0[135];
+    QByteArrayData data[14];
+    char stringdata0[207];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -40,13 +40,19 @@ QT_MOC_LITERAL(5, 56, 17), // "click_on_BtnThick"
 QT_MOC_LITERAL(6, 74, 17), // "click_on_BtnWaste"
 QT_MOC_LITERAL(7, 92, 17), // "click_on_BtnStamp"
 QT_MOC_LITERAL(8, 110, 11), // "status_slot"
-QT_MOC_LITERAL(9, 122, 12) // "DataRec_slot"
+QT_MOC_LITERAL(9, 122, 12), // "DataRec_slot"
+QT_MOC_LITERAL(10, 135, 17), // "DataRec_slot_DevA"
+QT_MOC_LITERAL(11, 153, 17), // "DataRec_slot_DevB"
+QT_MOC_LITERAL(12, 171, 17), // "DataRec_slot_DevC"
+QT_MOC_LITERAL(13, 189, 17) // "DataRec_slot_DevD"
 
     },
     "CStateWid\0sigBtnClick\0\0sigShowErrorMsg\0"
     "click_on_BtnRfid\0click_on_BtnThick\0"
     "click_on_BtnWaste\0click_on_BtnStamp\0"
-    "status_slot\0DataRec_slot"
+    "status_slot\0DataRec_slot\0DataRec_slot_DevA\0"
+    "DataRec_slot_DevB\0DataRec_slot_DevC\0"
+    "DataRec_slot_DevD"
 };
 #undef QT_MOC_LITERAL
 
@@ -56,7 +62,7 @@ static const uint qt_meta_data_CStateWid[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -64,16 +70,20 @@ static const uint qt_meta_data_CStateWid[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    2,   54,    2, 0x06 /* Public */,
-       3,    3,   59,    2, 0x06 /* Public */,
+       1,    2,   74,    2, 0x06 /* Public */,
+       3,    3,   79,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       4,    0,   66,    2, 0x0a /* Public */,
-       5,    0,   67,    2, 0x0a /* Public */,
-       6,    0,   68,    2, 0x0a /* Public */,
-       7,    0,   69,    2, 0x0a /* Public */,
-       8,    3,   70,    2, 0x0a /* Public */,
-       9,    0,   77,    2, 0x0a /* Public */,
+       4,    0,   86,    2, 0x0a /* Public */,
+       5,    0,   87,    2, 0x0a /* Public */,
+       6,    0,   88,    2, 0x0a /* Public */,
+       7,    0,   89,    2, 0x0a /* Public */,
+       8,    3,   90,    2, 0x0a /* Public */,
+       9,    0,   97,    2, 0x0a /* Public */,
+      10,    0,   98,    2, 0x0a /* Public */,
+      11,    0,   99,    2, 0x0a /* Public */,
+      12,    0,  100,    2, 0x0a /* Public */,
+      13,    0,  101,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int, QMetaType::QString,    2,    2,
@@ -85,6 +95,10 @@ static const uint qt_meta_data_CStateWid[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,    2,    2,    2,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -104,6 +118,10 @@ void CStateWid::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 5: _t->click_on_BtnStamp(); break;
         case 6: _t->status_slot((*reinterpret_cast< bool(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2])),(*reinterpret_cast< bool(*)>(_a[3]))); break;
         case 7: _t->DataRec_slot(); break;
+        case 8: _t->DataRec_slot_DevA(); break;
+        case 9: _t->DataRec_slot_DevB(); break;
+        case 10: _t->DataRec_slot_DevC(); break;
+        case 11: _t->DataRec_slot_DevD(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -150,13 +168,13 @@ int CStateWid::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 12)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 8;
+        _id -= 12;
     }
     return _id;
 }

@@ -24,7 +24,10 @@ NanDuWidget::NanDuWidget(QWidget *parent) : QWidget(parent)
     connect(m_ndMsgBox,SIGNAL(Clicked_btn_Cancel()),this,SLOT(click_on_msgcancel()),Qt::QueuedConnection);
     //状态栏
 //    connect(w, SIGNAL(status_send(bool,bool,bool)), m_pStateAreawid, SLOT(status_slot(bool,bool,bool)),Qt::QueuedConnection);
-//    connect(w, SIGNAL(DataRec_sta()), m_pStateAreawid, SLOT(DataRec_slot()),Qt::QueuedConnection);
+    connect(m, SIGNAL(DataRec_sta_DevA()), m_pStateAreawid, SLOT(DataRec_slot_DevA()),Qt::QueuedConnection);
+    connect(m, SIGNAL(DataRec_sta_DevB()), m_pStateAreawid, SLOT(DataRec_slot_DevB()),Qt::QueuedConnection);
+    connect(m, SIGNAL(DataRec_sta_DevC()), m_pStateAreawid, SLOT(DataRec_slot_DevC()),Qt::QueuedConnection);
+    connect(m, SIGNAL(DataRec_sta_DevD()), m_pStateAreawid, SLOT(DataRec_slot_DevD()),Qt::QueuedConnection);
 
 
     //自动连接
@@ -33,14 +36,15 @@ NanDuWidget::NanDuWidget(QWidget *parent) : QWidget(parent)
 }
 void NanDuWidget::setupUi()
 {
+
 //    w = new MainWindow();//new MainWindow(this);
 //    w->setWindowFlags(Qt::Popup);//弹出窗口，点击南都窗口后，设置界面隐藏
-
 //    w->show();
 //    connect(w, SIGNAL(signal_send(int)), this, SLOT(led_change(int)),Qt::QueuedConnection);
 //    setCentralWidget(widget);
-    setAttribute(Qt::WA_StaticContents);
 //    setFixedSize(1920,1080);
+
+    setAttribute(Qt::WA_StaticContents);
     setWindowTitle("南都汽车电子 水温传感器检测");
     setWindowFlags(Qt::FramelessWindowHint);
     setWindowIcon(QIcon(":/image/logo"));
@@ -50,9 +54,9 @@ void NanDuWidget::setupUi()
     QRect screenRect = desktopWidget->screenGeometry();
     int currentScreenWid = screenRect.width();
     int currentScreenHei = screenRect.height();
-//    this->resize(currentScreenWid*3/4,currentScreenHei*4/5);
     this->resize(currentScreenWid,currentScreenHei);
 //    w->move(currentScreenWid*1/5,currentScreenHei*1/5);
+//    this->resize(currentScreenWid*3/4,currentScreenHei*4/5);
 
     m_ndMsgBox = new ndmassegebox(this);
     m_ndMsgBox->setGeometry((currentScreenWid-460)/2,(currentScreenHei-260)/2,460,260);
@@ -61,10 +65,12 @@ void NanDuWidget::setupUi()
     m_Darkwidge->resize (currentScreenWid, currentScreenHei);
     m_Darkwidge->move (0,0);
     QPalette pal(m_Darkwidge->palette());
-    m_Darkwidge->setStyleSheet("background-color:rgba(0, 0, 0, 60%);border-radius: 20px;");//透明如果主界面是圆角就要圆角
+//    m_Darkwidge->setStyleSheet("background-color:rgba(0, 0, 0, 60%);border-radius: 20px;");//透明如果主界面是圆角就要圆角
+    m_Darkwidge->setStyleSheet("background-color:red;border-radius: 20px;");//透明如果主界面是圆角就要圆角
     m_Darkwidge->setAutoFillBackground(true);
     m_Darkwidge->setPalette(pal);
-    m_Darkwidge->hide();
+    m_Darkwidge->show();
+//    m_Darkwidge->hide();
 
     QVBoxLayout *pMainLayOut = new QVBoxLayout(this);
 
@@ -119,31 +125,18 @@ void NanDuWidget::SelectButton(int iCurSelectNum)
         iturnNum = 0;
 
     m_StackedWidget->setCurrentIndex(iturnNum);
-    if(iCurSelectNum==2)
-    {
-        qDebug()<<"w->ResetDev()"<<endl;
-//        w->ResetDev();
-    }
 
-//    if(iCurSelectNum==1)
-//    {
-
-////        w->show();
-////        m_StackedWidget->setCurrentIndex(1);
-
-//    }
-
-    if(iCurSelectNum == 4)
+    if(iCurSelectNum == 2)
     {
 
         //弹框提示重启
         m_Darkwidge->show();
         m_ndMsgBox->setVisible(true);
         m_ndMsgBox->setType(0);
-        m_ndMsgBox->setLabelText(tr("重启提醒"),tr("是否确认重启设备？"));
+        m_ndMsgBox->setLabelText(tr("重启提醒"),tr("是否确认重启程序？"));
     }
 
-    if(iCurSelectNum == 5)
+    if(iCurSelectNum == 3)
     {
         //弹框提示关机
         m_Darkwidge->show();
@@ -178,9 +171,7 @@ void NanDuWidget::click_on_msgok(int msgtype)
     {
 
         //重启操作
-        //qDedbug()<<"重启操作"<<endl;
-        m_pMenuBar->setFirBtnChecked();
-        qApp->exit(886);
+        this->reboot();
     }
     else if(msgtype == 1)
     {
@@ -200,3 +191,15 @@ void NanDuWidget::click_on_msgcancel()
 
     //this->showFullScreen();
 }
+
+void NanDuWidget::reboot()
+{
+    QString program = QApplication::applicationFilePath();
+    QStringList arguments = QApplication::arguments();
+    QString workingDirectory = QDir::currentPath();
+    QProcess::startDetached(program, arguments, workingDirectory);
+    QApplication::exit();
+
+}
+
+

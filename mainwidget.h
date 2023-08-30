@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QDesktopWidget>
 #include <QApplication>
+#include "menubarwid.h"
 
 class mainwidget : public QWidget
 {
@@ -16,6 +17,10 @@ public:
     int currentScreenHei;//整个主部件区域大小
 
 signals:
+    void DataRec_sta_DevA();
+    void DataRec_sta_DevB();
+    void DataRec_sta_DevC();
+    void DataRec_sta_DevD();
 
 public slots:
     void QStringListDeal(QStringList);
