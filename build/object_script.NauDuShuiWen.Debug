@@ -1,6 +1,4 @@
 INPUT(
-./debug\bak_canthread.o
-./debug\bak_mainwindow.o
 ./debug\main.o
 ./debug\nanduwidget.o
 ./debug\menubarwid.o
@@ -17,8 +15,6 @@ INPUT(
 ./debug\resultdialog.o
 ./debug\mainwidget.o
 ./debug\qrc_res.o
-./debug\moc_bak_canthread.o
-./debug\moc_bak_mainwindow.o
 ./debug\moc_nanduwidget.o
 ./debug\moc_menubarwid.o
 ./debug\moc_pushbutton.o

@@ -1,6 +1,4 @@
 INPUT(
-./release\bak_canthread.o
-./release\bak_mainwindow.o
 ./release\main.o
 ./release\nanduwidget.o
 ./release\menubarwid.o
@@ -17,8 +15,6 @@ INPUT(
 ./release\resultdialog.o
 ./release\mainwidget.o
 ./release\qrc_res.o
-./release\moc_bak_canthread.o
-./release\moc_bak_mainwindow.o
 ./release\moc_nanduwidget.o
 ./release\moc_menubarwid.o
 ./release\moc_pushbutton.o

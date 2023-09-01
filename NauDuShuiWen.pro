@@ -26,8 +26,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-    bak_canthread.cpp \
-    bak_mainwindow.cpp \
         main.cpp \
     nanduwidget.cpp \
     menubarwid.cpp \
@@ -45,8 +43,6 @@ SOURCES += \
     mainwidget.cpp
 
 HEADERS += \
-    bak_canthread.h \
-    bak_mainwindow.h \
     nanduwidget.h \
     menubarwid.h \
     pushbutton.h \
@@ -62,16 +58,15 @@ HEADERS += \
     resultdialog.h \
     mainwidget.h
 
-FORMS += \
-        mainwindow.ui
+FORMS +=
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./ -lControlCAN
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/./ -lControlCAN
+#win32:CONFIG(release, debug|release): LIBS += -L$$PWD/./ -lControlCAN
+#else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/./ -lControlCAN
 
 INCLUDEPATH += $$PWD/.
 DEPENDPATH += $$PWD/.

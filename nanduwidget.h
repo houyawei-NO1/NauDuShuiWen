@@ -12,6 +12,8 @@
 #include <QStackedWidget>
 #include <QDir>
 #include <QProcess>
+#include <QWidget>
+#include <Windows.h>
 #include "menubarwid.h"
 #include "ndmassegebox.h"
 #include "ctipareawid.h"
@@ -37,7 +39,7 @@ private:
     QGridLayout *gLayout;
     MenuBarWid* m_pMenuBar;
     ndmassegebox *m_ndMsgBox;
-    QWidget *m_Darkwidge;
+//    QWidget *m_Darkwidge;
     CTipAreaWid *m_pTipAreaWid;
     CStateWid *m_pStateAreawid;
     QStackedWidget *m_StackedWidget;

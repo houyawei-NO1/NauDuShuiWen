@@ -5,7 +5,7 @@ ndmassegebox::ndmassegebox(QWidget *parent) : QWidget(parent)
 
 
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
-    setWindowModality(Qt::ApplicationModal);
+    this->setWindowModality(Qt::ApplicationModal);
     this->setStyleSheet("background-color:#22293c;");
 
     int fontId = QFontDatabase::addApplicationFont(QCoreApplication::applicationDirPath() + "/PingFangSCRegular.ttf");
@@ -25,7 +25,7 @@ void ndmassegebox::Init()
     QVBoxLayout *pLayout_main = new QVBoxLayout(this);
 
     QWidget* widtitle = new QWidget(this);
-    widtitle->setStyleSheet("background-color:#2B3046;");
+    widtitle->setStyleSheet("background-color:#1673DB;");
     widtitle->setFixedHeight(50);
     QHBoxLayout *pLayout_title = new QHBoxLayout(widtitle);
     m_titleLabel = new QLabel(this);

@@ -30,66 +30,47 @@ NanDuWidget::NanDuWidget(QWidget *parent) : QWidget(parent)
     connect(m, SIGNAL(DataRec_sta_DevD()), m_pStateAreawid, SLOT(DataRec_slot_DevD()),Qt::QueuedConnection);
 
 
-    //自动连接
-//    w->ConnectDev();
-
 }
 void NanDuWidget::setupUi()
 {
-
-//    w = new MainWindow();//new MainWindow(this);
-//    w->setWindowFlags(Qt::Popup);//弹出窗口，点击南都窗口后，设置界面隐藏
-//    w->show();
-//    connect(w, SIGNAL(signal_send(int)), this, SLOT(led_change(int)),Qt::QueuedConnection);
-//    setCentralWidget(widget);
-//    setFixedSize(1920,1080);
-
     setAttribute(Qt::WA_StaticContents);
     setWindowTitle("南都汽车电子 水温传感器检测");
     setWindowFlags(Qt::FramelessWindowHint);
     setWindowIcon(QIcon(":/image/logo"));
-
-
     QDesktopWidget *desktopWidget = QApplication::desktop();
     QRect screenRect = desktopWidget->screenGeometry();
     int currentScreenWid = screenRect.width();
     int currentScreenHei = screenRect.height();
     this->resize(currentScreenWid,currentScreenHei);
-//    w->move(currentScreenWid*1/5,currentScreenHei*1/5);
-//    this->resize(currentScreenWid*3/4,currentScreenHei*4/5);
 
     m_ndMsgBox = new ndmassegebox(this);
     m_ndMsgBox->setGeometry((currentScreenWid-460)/2,(currentScreenHei-260)/2,460,260);
     m_ndMsgBox->setVisible(false);
-    m_Darkwidge = new QWidget(this);
-    m_Darkwidge->resize (currentScreenWid, currentScreenHei);
-    m_Darkwidge->move (0,0);
-    QPalette pal(m_Darkwidge->palette());
-//    m_Darkwidge->setStyleSheet("background-color:rgba(0, 0, 0, 60%);border-radius: 20px;");//透明如果主界面是圆角就要圆角
-    m_Darkwidge->setStyleSheet("background-color:red;border-radius: 20px;");//透明如果主界面是圆角就要圆角
-    m_Darkwidge->setAutoFillBackground(true);
-    m_Darkwidge->setPalette(pal);
-    m_Darkwidge->show();
+
+//    m_Darkwidge = new QWidget(this);
+//    m_Darkwidge->resize (currentScreenWid, currentScreenHei);
+//    m_Darkwidge->move (0,5);
+//    QPalette pal(m_Darkwidge->palette());
+//    m_Darkwidge->setStyleSheet("background-color:rgba(0, 0, 0, 0.2);border-radius: 20px;");//透明如果主界面是圆角就要圆角
+//    m_Darkwidge->setAutoFillBackground(true);
+//    m_Darkwidge->setPalette(pal);
 //    m_Darkwidge->hide();
 
     QVBoxLayout *pMainLayOut = new QVBoxLayout(this);
-
     QVBoxLayout *pVSubLayOut = new QVBoxLayout();
     pVSubLayOut->setSpacing(0); //控件之间的边距
     m_pMenuBar = new MenuBarWid(this);
-
     m_StackedWidget = new QStackedWidget(this);
 
     m = new mainwidget(this);
     rs485 = new serialport(this);
-
     m_StackedWidget->addWidget(m);
     m_StackedWidget->addWidget(rs485);
 
 
-   pVSubLayOut->addWidget(m_pMenuBar);
-   pVSubLayOut->addWidget(m_StackedWidget);
-   pVSubLayOut->setSpacing(0);
+    pVSubLayOut->addWidget(m_pMenuBar);
+    pVSubLayOut->addWidget(m_StackedWidget);
+    pVSubLayOut->setSpacing(0);
 
     QWidget* widbottom = new QWidget(this);
     widbottom->setStyleSheet("background-color:rgb(28,32,48)");
@@ -107,17 +88,17 @@ void NanDuWidget::setupUi()
     pMainLayOut->setContentsMargins(0,0,0,0);
     pMainLayOut->setSpacing(0); //控件之间的边距
     pMainLayOut->setMargin(0);
-//    widget->setLayout(pMainLayOut);
+
 
 }
 NanDuWidget::~NanDuWidget()
 {
-//    delete w;//与关闭按钮重复
+    delete m;
+    delete rs485;
 }
 
 void NanDuWidget::SelectButton(int iCurSelectNum)
 {
-
     int iturnNum = 0;
     if(iCurSelectNum < 2)
         iturnNum = iCurSelectNum;
@@ -128,9 +109,8 @@ void NanDuWidget::SelectButton(int iCurSelectNum)
 
     if(iCurSelectNum == 2)
     {
-
         //弹框提示重启
-        m_Darkwidge->show();
+//        m_Darkwidge->show();
         m_ndMsgBox->setVisible(true);
         m_ndMsgBox->setType(0);
         m_ndMsgBox->setLabelText(tr("重启提醒"),tr("是否确认重启程序？"));
@@ -139,7 +119,7 @@ void NanDuWidget::SelectButton(int iCurSelectNum)
     if(iCurSelectNum == 3)
     {
         //弹框提示关机
-        m_Darkwidge->show();
+//        m_Darkwidge->show();
         m_ndMsgBox->setVisible(true);
         m_ndMsgBox->setType(1);
         m_ndMsgBox->setLabelText(tr("关机提醒"),tr("是否确认关机？"));
@@ -147,7 +127,8 @@ void NanDuWidget::SelectButton(int iCurSelectNum)
 }
 void NanDuWidget::click_on_closeall()
 {
-//    delete w;
+    delete m;
+    delete rs485;
     close();
 }
 void NanDuWidget::click_on_Max()
@@ -160,23 +141,24 @@ void NanDuWidget::click_on_Min()
 }
 void NanDuWidget::CloseSoft()
 {
-//    delete w;
+    delete m;
+    delete rs485;
     close();
 }
 void NanDuWidget::click_on_msgok(int msgtype)
 {
-    m_Darkwidge->hide();
-
+//    m_Darkwidge->hide();
     if(msgtype == 0)
     {
-
         //重启操作
         this->reboot();
+//        system("shutdown -r -t 00");
     }
     else if(msgtype == 1)
     {
         //关机
         m_pMenuBar->setFirBtnChecked();
+        system("shutdown -s -t 00");
     }
 
     else
@@ -186,7 +168,7 @@ void NanDuWidget::click_on_msgok(int msgtype)
 }
 void NanDuWidget::click_on_msgcancel()
 {
-    m_Darkwidge->hide();
+//    m_Darkwidge->hide();
     m_pMenuBar->setFirBtnChecked();
 
     //this->showFullScreen();
@@ -199,7 +181,6 @@ void NanDuWidget::reboot()
     QString workingDirectory = QDir::currentPath();
     QProcess::startDetached(program, arguments, workingDirectory);
     QApplication::exit();
-
 }
 
 
