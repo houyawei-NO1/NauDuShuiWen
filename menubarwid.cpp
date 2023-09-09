@@ -18,8 +18,9 @@ MenuBarWid::MenuBarWid(QWidget *parent) : QWidget(parent)
 void MenuBarWid::setupUi()
 {
     this->setAttribute(Qt::WA_StyledBackground,true);
-    setWindowFlags(Qt::FramelessWindowHint);
+    this->setWindowFlags(Qt::FramelessWindowHint);
    this->setStyleSheet("background-color:rgb(43,48,70)");
+   this->setFocusPolicy(Qt::ClickFocus);
 
 //   setMaximumHeight(60);
 //   setMinimumHeight(60);
@@ -120,17 +121,20 @@ void MenuBarWid::Init()
     selectCombobox = new QComboBox(this);
     selectCombobox->addItem("40℃");
     selectCombobox->addItem("80℃");
+    selectCombobox->addItem("自定义");
     selectCombobox->setStyleSheet("color:rgb(255,245,238);font:25px");
     QLabel *minText =new QLabel(this);
     QLabel *maxText =new QLabel(this);
     minText->setText("MIN(Ω):");
     minText->setStyleSheet("color:rgb(255,245,238);font:25px");
     minLineEdit = new QLineEdit(this);
-    minLineEdit->setStyleSheet("color:rgb(255,245,238);font:25px");
+    minLineEdit->setStyleSheet("color:rgb(255,245,238);font:20px");
+    minLineEdit->setInputMethodHints(Qt::ImhDigitsOnly);
     maxText->setText("MAX(Ω):");
     maxText->setStyleSheet("color:rgb(255,245,238);font:25px");
     maxLineEdit = new QLineEdit(this);
-    maxLineEdit->setStyleSheet("color:rgb(255,245,238);font:25px");
+    maxLineEdit->setStyleSheet("color:rgb(255,245,238);font:20px");
+    maxLineEdit->setInputMethodHints(Qt::ImhDigitsOnly);
 
     count_layout->setSpacing(5);
     count_layout->addWidget(lb_TotleNum);
@@ -258,6 +262,7 @@ void MenuBarWid::LineEditChanged()
 //   qDebug()<<maxLineEdit->text()<<endl;
    minvalue = minLineEdit->text().toFloat();
    maxvalue = maxLineEdit->text().toFloat();
+   selectCombobox->setCurrentIndex(2);
 //      qDebug()<<minvalue<<endl;
 //      qDebug()<<maxvalue<<endl;
 

@@ -37,6 +37,7 @@ void NanDuWidget::setupUi()
     setWindowTitle("南都汽车电子 水温传感器检测");
     setWindowFlags(Qt::FramelessWindowHint);
     setWindowIcon(QIcon(":/image/logo"));
+    setFocusPolicy(Qt::ClickFocus);
     QDesktopWidget *desktopWidget = QApplication::desktop();
     QRect screenRect = desktopWidget->screenGeometry();
     int currentScreenWid = screenRect.width();
