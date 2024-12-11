@@ -331,34 +331,34 @@ void serialport::auto_deal()
     switch(num)
     {
         case 0:
-           sendLineEdit->setText("F7E3C912016530");
+           sendLineEdit->setText("F7E3C91501B633");
            break;
         case 1:
-           sendLineEdit->setText("F7E3C912016530");
+           sendLineEdit->setText("F7E3C91501B633");
            break;
         case 2:
-           sendLineEdit->setText("F7E3C912016531");
+           sendLineEdit->setText("F7E3C916017217");
            break;
         case 3:
-           sendLineEdit->setText("F7E3C912016531");
+           sendLineEdit->setText("F7E3C916017217");
            break;
         case 4:
-           sendLineEdit->setText("F7E3C912016530");
+           // sendLineEdit->setText("F7E3C912016531");
            break;
         case 5:
-           sendLineEdit->setText("F7E3C912016530");
+           sendLineEdit->setText("F7E3C912016531");
            break;
         case 6:
            sendLineEdit->setText("F7E3C912016531");
            break;
         case 7:
-           sendLineEdit->setText("F7E3C912016531");
+           sendLineEdit->setText("F7E3C912016530");
            break;
         case 8:
-           sendLineEdit->setText("F7E3C912016531");
+           sendLineEdit->setText("F7E3C912016530");
            break;
         case 9:
-           sendLineEdit->setText("F7E3C912016531");
+           // sendLineEdit->setText("F7E3C912016531");
            break;
         default:
             sendLineEdit->setText("");

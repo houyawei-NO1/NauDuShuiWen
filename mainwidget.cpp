@@ -62,9 +62,9 @@ void mainwidget::QStringListDeal(QStringList str_list)
             <<"16:"<<str_list.at(16)
             <<"17:"<<str_list.at(17)
             <<endl;
-    if(str_list.at(1) == "F7E3C912016530")
+    if(str_list.at(1) == "F7E3C91501B633")
         {
-            qDebug()<<"F7E3C912016530"<<endl;
+            qDebug()<<"F7E3C91501B633"<<endl;
             for(int i = 0;i<14;i++)
                 {
                 dianzu[i]->setText(str_list.at(i+3));
@@ -75,9 +75,9 @@ void mainwidget::QStringListDeal(QStringList str_list)
                 }
             emit DataRec_sta_DevA();
         }
-    else if(str_list.at(1) == "F7E3C912016531")
+    else if(str_list.at(1) == "F7E3C916017217")
         {
-            qDebug()<<"F7E3C912016531"<<endl;
+            qDebug()<<"F7E3C916017217"<<endl;
             for(int i = 14;i<28;i++)
             {
             dianzu[i]->setText(str_list.at(i-11));
@@ -87,6 +87,32 @@ void mainwidget::QStringListDeal(QStringList str_list)
                 dianzu[i]->setStyleSheet("color:rgb(255,245,238);font:40px");
             }
             emit DataRec_sta_DevB();
+        }
+        else if(str_list.at(1) == "F7E3C912016531")
+        {
+            qDebug()<<"F7E3C912016531"<<endl;
+            for(int i = 28;i<42;i++)
+            {
+                dianzu[i]->setText(str_list.at(i-11));
+                if(dianzu[i]->text().toFloat()>minvalue && dianzu[i]->text().toFloat()<maxvalue)
+                    dianzu[i]->setStyleSheet("color:rgb(67,207,124);font:40px");
+                else
+                    dianzu[i]->setStyleSheet("color:rgb(255,245,238);font:40px");
+            }
+            // emit DataRec_sta_DevB();
+        }
+        else if(str_list.at(1) == "F7E3C912016530")
+        {
+            qDebug()<<"F7E3C912016530"<<endl;
+            for(int i = 42;i<50;i++)
+            {
+                dianzu[i]->setText(str_list.at(i-11));
+                if(dianzu[i]->text().toFloat()>minvalue && dianzu[i]->text().toFloat()<maxvalue)
+                    dianzu[i]->setStyleSheet("color:rgb(67,207,124);font:40px");
+                else
+                    dianzu[i]->setStyleSheet("color:rgb(255,245,238);font:40px");
+            }
+            // emit DataRec_sta_DevB();
         }
 }
 
