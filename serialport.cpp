@@ -262,9 +262,27 @@ void serialport::sendButton_clicked()
 
 void serialport::rec_data()
 {
+    QByteArray valueArray;
     global_port.waitForReadyRead(15);
     QByteArray receiveArray = global_port.readAll();
-    //          qInfo()<<receiveArray;
+    dataArray = dataArray + receiveArray;
+    // qInfo()<<"receiveArray"<<receiveArray<<endl;
+    qInfo()<<"dataArray"<<dataArray<<endl;
+    // 查找
+    int headindex = dataArray.indexOf("MCUID");
+    // qDebug() << "Index of 'headindex':" << headindex;
+    int tailindex = dataArray.indexOf("\r\n");
+    // qDebug() << "Index of 'tailindex':" << tailindex;
+
+    if(headindex!=-1 && tailindex!=-1)
+    {
+    valueArray = dataArray.mid(headindex, tailindex - headindex + 2 );//+2 指的是回车 换行
+    qDebug() << "valueArray:" << valueArray;
+
+    dataArray.remove(headindex, tailindex - headindex + 2);//+2 指的是回车 换行
+    }
+    // qDebug() << "remove_valueArray:" << valueArray;
+
     QDateTime current_time = QDateTime::currentDateTime();
     //QString current_date = current_time.toString("yyyy-MM-dd hh:mm:ss");
     QString time = current_time.toString("hh:mm:ss");
@@ -294,14 +312,16 @@ void serialport::rec_data()
 
      messageBox->moveCursor(QTextCursor::End);
 
-     if(QString(receiveArray).size()>150)
+     if(QString(valueArray).size()>150)
      {
-     QStringList str_list = QString(receiveArray).split(";");
-     qDebug()<<str_list.size()<<endl;
+     QStringList str_list = QString(valueArray).split(";");
+
 
      if(str_list.size()>18)
      emit sendQStringList(str_list);
      }
+     else
+     qDebug()<<"数据不完整:"<<QString(valueArray).size()<<endl;
 
 }
 
@@ -331,10 +351,10 @@ void serialport::auto_deal()
     switch(num)
     {
         case 0:
-           sendLineEdit->setText("F7E3C91501B633");
+           sendLineEdit->setText("F7E3C91B0194ED");//F7E3C91501B633检验台
            break;
         case 1:
-           sendLineEdit->setText("F7E3C91501B633");
+           sendLineEdit->setText("F7E3C91B0194ED");//F7E3C91501B633检验台
            break;
         case 2:
            sendLineEdit->setText("F7E3C916017217");

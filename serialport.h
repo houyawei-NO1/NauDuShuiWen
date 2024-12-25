@@ -28,6 +28,7 @@ class serialport : public QWidget
 public:
     explicit serialport(QWidget *parent = nullptr);
     void system_init();
+    QByteArray dataArray;
 
 signals:
 
@@ -39,6 +40,8 @@ private slots:
     void refreshButton_clicked();
     void rec_data();
     void auto_deal();
+
+
 private:
 
 

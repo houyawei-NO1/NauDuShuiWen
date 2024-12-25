@@ -45,26 +45,26 @@ mainwidget::mainwidget(QWidget *parent) : QWidget(parent)
 void mainwidget::QStringListDeal(QStringList str_list)
 {
     if(str_list.size()>18)
-    qDebug()<<"1:"<<str_list.at(1)
-            <<"3:"<<str_list.at(3)
-            <<"4:"<<str_list.at(4)
-            <<"5:"<<str_list.at(5)
-            <<"6:"<<str_list.at(6)
-            <<"7:"<<str_list.at(7)
-            <<"8:"<<str_list.at(8)
-            <<"9:"<<str_list.at(9)
-            <<"10:"<<str_list.at(10)
-            <<"11:"<<str_list.at(11)
-            <<"12:"<<str_list.at(12)
-            <<"13:"<<str_list.at(13)
-            <<"14:"<<str_list.at(14)
-            <<"15:"<<str_list.at(15)
-            <<"16:"<<str_list.at(16)
-            <<"17:"<<str_list.at(17)
-            <<endl;
-    if(str_list.at(1) == "F7E3C91501B633")
+    // qDebug()<<"1:"<<str_list.at(1)
+    //         <<"3:"<<str_list.at(3)
+    //         <<"4:"<<str_list.at(4)
+    //         <<"5:"<<str_list.at(5)
+    //         <<"6:"<<str_list.at(6)
+    //         <<"7:"<<str_list.at(7)
+    //         <<"8:"<<str_list.at(8)
+    //         <<"9:"<<str_list.at(9)
+    //         <<"10:"<<str_list.at(10)
+    //         <<"11:"<<str_list.at(11)
+    //         <<"12:"<<str_list.at(12)
+    //         <<"13:"<<str_list.at(13)
+    //         <<"14:"<<str_list.at(14)
+    //         <<"15:"<<str_list.at(15)
+    //         <<"16:"<<str_list.at(16)
+    //         <<"17:"<<str_list.at(17)
+    //         <<endl;
+    if(str_list.at(1) == "F7E3C91B0194ED")////F7E3C91501B633检验台
         {
-            qDebug()<<"F7E3C91501B633"<<endl;
+            qDebug()<<"F7E3C91B0194ED"<<endl;//F7E3C91501B633检验台
             for(int i = 0;i<14;i++)
                 {
                 dianzu[i]->setText(str_list.at(i+3));
@@ -99,7 +99,7 @@ void mainwidget::QStringListDeal(QStringList str_list)
                 else
                     dianzu[i]->setStyleSheet("color:rgb(255,245,238);font:40px");
             }
-            // emit DataRec_sta_DevB();
+            emit DataRec_sta_DevC();
         }
         else if(str_list.at(1) == "F7E3C912016530")
         {
@@ -112,7 +112,7 @@ void mainwidget::QStringListDeal(QStringList str_list)
                 else
                     dianzu[i]->setStyleSheet("color:rgb(255,245,238);font:40px");
             }
-            // emit DataRec_sta_DevB();
+            emit DataRec_sta_DevD();
         }
 }
 
